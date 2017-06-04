@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 04-Jun-2017 às 13:01
+-- Generation Time: 04-Jun-2017 às 21:43
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -32,8 +32,16 @@ CREATE TABLE `admins` (
   `senha` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `createdAt` date DEFAULT NULL,
-  `updateAt` date DEFAULT NULL
+  `updatedAt` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `admins`
+--
+
+INSERT INTO `admins` (`id`, `matricula`, `senha`, `nome`, `createdAt`, `updatedAt`) VALUES
+(8, '5436534543', '123456', 'Maria', '2017-06-04', '2017-06-04'),
+(9, '324242342', '24234', 'Joana', '2017-06-04', '2017-06-04');
 
 -- --------------------------------------------------------
 
@@ -50,8 +58,16 @@ CREATE TABLE `certeses` (
   `depoimento_agressor` mediumtext,
   `users_id` int(11) DEFAULT NULL,
   `createdAt` date DEFAULT NULL,
-  `updatedAt` date DEFAULT NULL
+  `updatedAt` date DEFAULT NULL,
+  `grau_risco` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `certeses`
+--
+
+INSERT INTO `certeses` (`id`, `tipo`, `data`, `testemunha`, `depoimento_usuaria`, `depoimento_agressor`, `users_id`, `createdAt`, `updatedAt`, `grau_risco`) VALUES
+(1, 'Agressão', '2017-06-15', 'Maria (Vizinha)', 'Invadiu minha casa', '"Não fiz nada"', 11, NULL, NULL, 'alto');
 
 -- --------------------------------------------------------
 
@@ -73,8 +89,10 @@ CREATE TABLE `dailys` (
 --
 
 INSERT INTO `dailys` (`id`, `data`, `descricao`, `user_id`, `updatedAt`, `createdAt`) VALUES
-(1, '2017-05-31', 'oi gente vadasdsdasdasdasd', NULL, '2017-06-04', NULL),
-(2, '2017-06-07', 'editouuuuuuuuuu', NULL, '2017-06-04', '2017-06-04');
+(1, '2017-05-31', 'Ele passou perto da minha casa', NULL, '2017-06-04', NULL),
+(2, '2017-06-07', 'Mandou recado pelo amigo', NULL, '2017-06-04', '2017-06-04'),
+(3, '2017-05-31', 'Mandou uma mensagem no celular', NULL, '2017-06-04', '2017-06-04'),
+(4, '2017-05-31', 'Deixou um bilhete na minha porta', NULL, '2017-06-04', '2017-06-04');
 
 -- --------------------------------------------------------
 
@@ -117,7 +135,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nome`, `processo`, `createdAt`, `updatedAt`, `rua`, `bairro`, `numero`, `cidade`, `complemento`, `endereco_visita`, `ponto_referencia`, `telefone`, `turno_visita`, `estado_civil`, `filhos`, `filhos_com_agressor`, `escolaridade`, `etnia`, `idade`, `religiao`, `profissao`, `trabalha`, `ultimo_emprego`, `local_trabalho`, `renda`, `responsavel_sustento`) VALUES
-(11, 'Ingrid Cruz Rodrigues', 'mudei', '2017-06-04', '2017-06-04', 'dsf', 'sad', 424, 'Salvador', 'dsf', 'fdf', 'fsf', 'fsf', 'fsfs', 'fsfs', 'uuuuuu', 'uuuuuuuu', 'uuuuuu', 'uuuuuuuu', 1, 'uuuuuuu', 'uuuuuuu', 'uuuuuu', 'uuuuuuu', 'u', 'uu', 'uuu');
+(11, 'Felipa', '1244', '2017-06-04', '2017-06-04', 'rua governador josé ferreira', 'federação', 424, 'Salvador', 'casa', 'fdf', 'fsf', 'fsf', 'fsfs', 'fsfs', 'uuuuuu', 'uuuuuuuu', 'uuuuuu', 'uuuuuuuu', 1, 'uuuuuuu', 'uuuuuuu', 'uuuuuu', 'uuuuuuu', 'u', 'uu', 'uuu'),
+(14, 'Tainara', '56475564', '2017-06-04', '2017-06-04', 'Avenida Cardeal da Silva', 'federacao', 1234, 'Salvador', 'casa', 'Avenida Cardeal da Silva', 'pizzaria', '124453', 'tarde', 'bahia', '2', '2', 'mÃ©dio', 'preta', 13, 'evangelica', 'professora ', 'sim', 'costureira', 'Salvador', '800,00', 'marido');
 
 --
 -- Indexes for dumped tables
@@ -156,22 +175,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `certeses`
 --
 ALTER TABLE `certeses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `dailys`
 --
 ALTER TABLE `dailys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- Constraints for dumped tables
 --
